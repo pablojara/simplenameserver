@@ -1,0 +1,28 @@
+namespace serverbuffer;
+
+union RequestMessage { ServerInfo, ServiceRequest }
+
+table SimService {
+  name:string;
+  endpoint:[string];
+}
+
+table ServerInfo {
+  name:string;
+  address:string;
+  port:string;
+  serviceslist:[SimService];
+}
+
+table ServiceRequest {
+  serviceName:string;
+  address:string;
+  port:string;
+  state:string;
+}
+
+table Request{
+  value:RequestMessage;
+}
+
+root_type Request;
